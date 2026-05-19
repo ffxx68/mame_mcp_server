@@ -29,26 +29,17 @@ pip install mcp httpx pillow mss
 ### 1. Copy files to the MAME folder
 
 ```
-C:\mame\
+C:\Users\<user>
   ├── mame.exe
   ├── mame_mcp_bridge.lua   ← copy here
   ├── roms\
   └── ...
 ```
 
-### 2. Configure environment variables (optional)
+### 2. Configure the MCP client
 
-Variables can be set in the system or in the Claude Desktop config file.
-
-| Variable          | Default                   | Description                |
-|-------------------|--------------------------|----------------------------|
-| `MAME_EXE`        | `C:\mame\mame.exe`        | Path to mame.exe           |
-| `MAME_ROM_PATH`   | `C:\mame\roms`            | ROMs folder                |
-| `MAME_LUA_BRIDGE` | `C:\mame\mame_bridge.lua` | Path to Lua bridge         |
-| `MAME_BRIDGE_PORT`| `6789`                    | TCP port for the bridge    |
-| `MAME_HTTP_PORT`  | `8080`                    | MAME HTTP port             |
-
-### 3. Configure the MCP client
+You usually do not need system-wide environment variables.
+Set paths directly in the MCP client config (`env`) only if your setup is not using the defaults.
 
 #### Option A — IntelliJ IDEA (GitHub Copilot)
 
@@ -89,9 +80,9 @@ Open `%APPDATA%\Claude\claude_desktop_config.json` and add:
       "command": "C:\\Python313\\python.exe",
       "args": ["-u", "C:\\path\\mame_mcp_server.py"],
       "env": {
-        "MAME_EXE": "C:\\mame\\mame.exe",
-        "MAME_ROM_PATH": "C:\\mame\\roms",
-        "MAME_LUA_BRIDGE": "C:\\mame\\mame_mcp_bridge.lua"
+        "MAME_EXE": "C:\\Users\\<user>\\mame\\mame.exe",
+        "MAME_ROM_PATH": "C:\\Users\\<user>\\mame\\roms",
+        "MAME_LUA_BRIDGE": "C:\\Users\\<user>\\mame\\mame_mcp_bridge.lua"
       }
     }
   }
