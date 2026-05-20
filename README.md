@@ -10,7 +10,7 @@ Control MAME from Claude (or any MCP client) via a Python server.
 ## Requirements
 
 - **MAME** installed on Windows (tested with 0.267+)
-- **Python 3.11+** — use the full path (e.g. `C:\Python313\python.exe`), not the Windows Store stub
+- **Python 3.11+**
 - Python dependencies:
 
 ```bash
@@ -19,17 +19,17 @@ pip install mcp httpx pillow mss
 
 ## Project Files
 
-| File                  | Description                                       |
-|-----------------------|---------------------------------------------------|
-| `mame_mcp_server.py`  | Main MCP server (stdio)                           |
-| `mame_mcp_bridge.lua` | Lua script loaded inside MAME (TCP bridge)        |
+| File                  | Description                                 |
+|-----------------------|---------------------------------------------|
+| `mame_mcp_server.py`  | Main MCP server (stdio)                     |
+| `mame_mcp_bridge.lua` | Lua script loaded inside MAME (bridge)      |
 
 ## Setup
 
 ### 1. Copy files to the MAME folder
 
 ```
-C:\Users\<user>
+C:\Users\<user>\mame\
   ├── mame.exe
   ├── mame_mcp_bridge.lua   ← copy here
   ├── roms\
@@ -67,7 +67,7 @@ Open `%LOCALAPPDATA%\github-copilot\intellij\mcp.json` and add the `mame` entry 
 > **Notes:**
 > - Use the full path to `python.exe` (not just `python`): the Windows Store stub does not find installed packages.
 > - The `mcp.json` file may contain other MCP servers already configured — just add the `mame` entry.
-> - After saving, **Refresh** the server from the IntelliJ AI Assistant (or restart the IDE).
+> - After saving, **Restart** the MCP server.
 
 #### Option B — Claude Desktop
 
